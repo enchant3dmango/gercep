@@ -1,6 +1,6 @@
 # Airflow on GKE (erflo-on-jikei)
 
-This repository was created to store all deployment files related to erflo-on-gke project.
+This repository was created to store all deployment files related to erflo-on-jikei project.
 
 ## Getting Started
 
