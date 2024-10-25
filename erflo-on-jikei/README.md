@@ -1,4 +1,4 @@
-# Airflow on GKE (erflo-on-gke)
+# Airflow on GKE (erflo-on-jikei)
 
 This repository was created to store all deployment files related to erflo-on-gke project.
 
