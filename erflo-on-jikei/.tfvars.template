@@ -6,4 +6,3 @@ machine_type       = ""
 region             = ""
 rm_service_account = ""
 zones              = []
-node_count         = 5

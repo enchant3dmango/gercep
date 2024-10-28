@@ -39,14 +39,3 @@ variable "zones" {
   type        = list(string)
   default     = []
 }
-
-variable "node_count" {
-  description = "Number of nodes in the cluster"
-  type        = number
-  default     = 5
-
-  validation {
-    condition     = var.node_count > 0 && var.node_count <= 10
-    error_message = "Node count must be between 1 and 10."
-  }
-}
