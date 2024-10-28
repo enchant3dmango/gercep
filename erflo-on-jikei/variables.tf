@@ -30,7 +30,7 @@ variable "region" {
 }
 
 variable "rm_service_account" {
-  description = "The service account used in both node pools"
+  description = "The service account used to manage resources"
   type        = string
 }
 
