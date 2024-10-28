@@ -29,7 +29,7 @@ variable "region" {
   type        = string
 }
 
-variable "service_account" {
+variable "rm_service_account" {
   description = "The service account used in both node pools"
   type        = string
 }

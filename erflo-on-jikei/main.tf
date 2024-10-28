@@ -4,8 +4,9 @@ data "google_client_config" "default" {}
 module "gke_node_sa" {
   source = "./modules/gke_node_sa"
 
-  cluster_name = var.cluster_name
-  project_id   = var.project_id
+  cluster_name       = var.cluster_name
+  project_id         = var.project_id
+  rm_service_account = var.rm_service_account
 }
 
 module "gke_vpc" {
@@ -36,6 +37,7 @@ module "gke" {
 
   create_service_account   = false
   remove_default_node_pool = true
+  deletion_protection      = false
 
   node_pools = [
     {
