@@ -3,22 +3,6 @@ data "google_client_config" "default" {}
 
 locals {
   service_accounts = {
-    "luislang" = {
-      name       = "${var.cluster_name}-luislang"
-      project_id = var.project_id
-      rmsa       = var.rmsa
-    }
-    "gke_node" = {
-      name       = "${var.cluster_name}-node"
-      project_id = var.project_id
-      rmsa       = var.rmsa
-      roles = [
-        "roles/logging.logWriter",
-        "roles/monitoring.metricWriter",
-        "roles/monitoring.viewer",
-        "roles/stackdriver.resourceMetadata.writer"
-      ]
-    }
     "airflow" = {
       name       = "${var.cluster_name}-airflow"
       project_id = var.project_id
@@ -32,20 +16,36 @@ locals {
         "roles/storage.objectUser"
       ]
     }
+    "gke_node" = {
+      name       = "${var.cluster_name}-node"
+      project_id = var.project_id
+      rmsa       = var.rmsa
+      roles = [
+        "roles/logging.logWriter",
+        "roles/monitoring.metricWriter",
+        "roles/monitoring.viewer",
+        "roles/stackdriver.resourceMetadata.writer"
+      ]
+    }
+    "luislang" = {
+      name       = "${var.cluster_name}-luislang"
+      project_id = var.project_id
+      rmsa       = var.rmsa
+    }
   }
   secrets = {
-    "luislang" = {
-      namespace = "luislang"
-      name      = "luislang-gcp-key"
-      service_account = {
-        name = "luislang-gcp-key"
-      }
-    }
     "airflow" = {
       namespace = "airflow"
       name      = "airflow-gcp-key"
       service_account = {
         name = "airflow-gcp-key"
+      }
+    }
+    "luislang" = {
+      namespace = "luislang"
+      name      = "luislang-gcp-key"
+      service_account = {
+        name = "luislang-gcp-key"
       }
     }
   }
